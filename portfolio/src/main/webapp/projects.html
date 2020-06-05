@@ -1,0 +1,108 @@
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <h1>My Portfolio</h1>
+      <p>This is my portfolio.</p>
+      <p>Click here to get a random message:</p>
+      <button onclick="addRandomGreeting()">Hello</button>
+      <div id="greeting-container"></div>
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Benjamin Ombeni</title>
+    <meta name="viewport" conatent="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--For media icons-->
+  </head>
+</head>
+<body>
+    <!-- ===================================================================================NavBar=================================================================================== -->
+    <div class="content"><!-- Start of content -->
+        <section class="" id="home">
+            <div class="navbar black-shadow" id="home-page-header"><!-- Start of page-header-->
+                <header class="nav-position">
+                    <nav>
+                        <a class="remove-underline whitesmoke-text padding20" href="index.html#home">About</a>
+                        <a class="remove-underline whitesmoke-text padding20" href="projects.html#cougar-roumie">Projects</a>
+                        <a class="remove-underline whitesmoke-text padding20" href="index.html#contact">Contact</a>
+                    </nav>
+                </header>
+            </div> <!--End of navbar-->
+        </section><!--End of about me section-->
+        <!-- ===============================================================================Project 1================================================================================= -->
+        <section class="full-screen" id="cougar-roumie">
+            <div class="flexbox-container-center extend-top-inner-gap">
+                <div class="flexbox-item blue1-bg">
+                    <h3 class="center-text">Cougar Roomie</h3>
+                    <p class="center-text">Teamed up with three other students to build and design this beautiful web application for finding roommates based on a personal assessment as part of a course projects.<p>
+                    <hr>
+                    <h4 class="center-text">Personal Contribution</h4>
+                    <ul>
+                        <li>Implemented the backend logic that handles the upload and storage of our user’s profile images in a PostgreSQL database, using the Spring Data JPA and Thymeleaf.</li>
+                    </ul>
+                    <div class="flexbox-container-expand">
+                        <div class="flexbox-item yellow-bg">
+                            <p class="center-text blue1-text"><a class="remove-underline blue1-text" href="http://cougarroomie.tech/">Demo</a></p>
+                        </div>
+                        <div class="flexbox-item yellow-bg">
+                            <p class="center-text blue1-text">Source: <span class="red-text">Private<span></p>
+                        </div><br>
+                    </div>
+                    <p class="center-text smaller-font">Feb 2020 - May 2020</p>
+                </div>
+            </div>
+            <div>
+                <a href="projects.html#study-buddy" style="margin-left: 45%"><img srcset="images/arrow.png" alt="arrow"></a>
+            </div>
+        </section>
+        <!-- ==============================================================================Project 2================================================================================== -->
+        <section class="full-screen" id="study-buddy">
+            <div class="flexbox-container-center extend-top-inner-gap">
+                <div class="flexbox-item blue1-bg">
+                    <h3 class="center-text">Study Buddy</h3>
+                    <p class="center-text">During my participation in the <a href="https://buildyourfuture.withgoogle.com/programs/softwareproductsprint/" class="remove-underline whitesmoke-text">
+                    Spring 2020 Software Product Sprint</a>, I had the opportunity to team up with two other students to design and build a web application for finding study partners based on school and course preferences.<p>
+                    <hr>
+                    <h4 class="center-text">Personal Contribution</h4>
+                    <ul>
+                        <li>Implemented the authentication system using OAuth.</li>
+                        <li>Implemented the backend logic for user matching using Java Servlets and Google's Datastore Queries.</li>
+                    </ul>
+                    <div class="flexbox-container-expand">
+                        <div class="flexbox-item yellow-bg">
+                            <p class="center-text blue1-text"><a class="remove-underline blue1-text" href="http://study-buddy-272615.appspot.com/">Demo</a></p>
+                        </div>
+                        <div class="flexbox-item yellow-bg">
+                            <p class="center-text blue1-text"><a class="remove-underline" href="https://github.com/mpasetes17/studyBuddy"><span class="blue1-text">Source: </span><span class="green-text">Available</span></a></p>
+                        </div>
+                    </div>
+                    <p class="center-text smaller-font">Feb 2020 - Now</p>
+                </div>
+            </div> 
+            <div>
+                <a href="projects.html#cougar-roumie" style="margin-left: 45%"><img srcset="images/arrow.png" alt="arrow"></a>
+            </div>
+        </section><!--End of studdy buddy-->
+    </div><!--End of content-->
+    <!-- ============================================================================== Footer ================================================================================== -->
+    <div class="footer">
+        <footer class="footer">
+           <p>This site is still a work in progress by Benjamin Ombeni</p>
+           <p><a target="_blank" href="https://icons8.com/icons/set/arrow--v1">Arrow icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+        </footer>
+    </div>
+</body>
+</html>
