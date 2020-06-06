@@ -26,3 +26,17 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+
+/***
+    Highlight the current section on the navigation bar TODO: Make feature work
+ */
+document.getElementById('about-link').addEventListener('click', () => {
+    document.getElementById('contact-link').className = 'remove-underline whitesmoke-text padding20'
+    this.className += ' on'
+})
+document.getElementById('contact-link').addEventListener('click', () => {
+    document.getElementById('about-link').className = 'remove-underline whitesmoke-text padding20'
+    this.className += ' on'
+})
+

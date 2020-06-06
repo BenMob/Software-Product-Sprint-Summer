@@ -15,21 +15,32 @@
             <div class="navbar black-shadow" id="home-page-header"><!-- Start of page-header-->
                 <header class="nav-position">
                     <nav>
-                        <a class="remove-underline whitesmoke-text padding20" href="index.html#home">About</a>
+                        <a id ="about-link" class="remove-underline whitesmoke-text padding20" href="index.html#home">About</a>
                         <a class="remove-underline whitesmoke-text padding20" href="projects.html#cougar-roumie">Projects</a>
-                        <a class="remove-underline whitesmoke-text padding20" href="index.html#contact">Contact</a>
+                        <a id ="contact-link" class="remove-underline whitesmoke-text padding20" href="index.html#contact">Contact</a>
                     </nav>
                 </header>
             </div> <!--End of navbar-->
-
-            <div class="flexbox-container-center" id="about-me">
-                <div class"center-xy" id="welcome-msg">
-                    <h2><em>Hi, I am Ben</em><h2>
+            <div id="about-wrapper">
+                <div class="flexbox-container-even black-shadow" id="about">
+                    <div>
+                        <a  href="projects.html#cougar-roumie">
+                            <img class="yellow-shadow-onhover" id=my-portrait-img src="images/laptop.jpg" href="projects.html#cougar-roumie">
+                        </a>  
+                    </div>
+                    <div id="welcome-msg-wrapper">
+                        <h2 id="welcome-msg" ><em>Hi, I am Ben</em><h2> 
+                        <p id="intro-par">I am a rising third year Software Engineering Student at <a href="https://www.csusm.edu/">California State University San Marcos</a>. Now, how did I end up in this field ?
+                            During my final year of High School, I was indecisve about what I wanted to do. So I decided to take an Introduction to Computer Science course
+                            just out of pure curiosity. It was during this time that I began to understand that all the magic about computers were just nothing but very precise set of statements 
+                            written by some creative human beings somewhere. I found that very fascinating and I knew I wanted to be one of those creative people, 
+                            I now I aspire to use the skills I am learning to work alongside others in building solutions for different communities around the world.        
+                        </p> 
+                    </div>
                 </div>
             </div>
         </section><!--End of about me section-->
 
-        
         <section class="full-screen" id="contact">
             <h1 class="center-text margin-bottom-100">Let's connect</h1>
              <div id="mediaPortfolio" class="flexbox-container-even">
@@ -49,15 +60,16 @@
                     <a href="https://www.instagram.com/bencode_journey/" target="-_blank"><button class= "instagram"><i class="fa fa-instagram"></i></button></a>
                     <p>Instagram</p>
                 </div>
-            </div> <!--End of media portfolio-->
-        </section>
+            </div> 
+        </section> <!--End of media contact-->
 
     </div><!--End of content-->
 
     <div class="footer">
         <footer class="footer">
-           <p>This site is still a work in progress by Benjamin Ombeni</p>
+           <p>Designed and Built by Benjamin Ombeni</p>
         </footer>
     </div>
 </body>
+<script src="../js/script.js" charset="utf-8"></script>
 </html>
