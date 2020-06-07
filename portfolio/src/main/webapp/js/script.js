@@ -12,31 +12,60 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
-
-
-/***
-    Highlight the current section on the navigation bar TODO: Make feature work
+/********************************************************
+ * Listens to the about link in the navigation bar and
+ * turns the text to yellow when the about section is visited.  
  */
 document.getElementById('about-link').addEventListener('click', () => {
-    document.getElementById('contact-link').className = 'remove-underline whitesmoke-text padding20'
-    this.className += ' on'
+    let about = document.getElementById('about-link')
+    let contact = document.getElementById('contact-link')
+    let projects = document.getElementById('projects-link')
+
+    if(!about.classList.contains('yellow-text'))
+  	    about.classList.add('yellow-text')
+
+    if(contact.classList.contains('yellow-text'))
+  	    contact.classList.remove('yellow-text')
+
+    if(projects.classList.contains('yellow-text'))
+        projects.classList.remove('yellow-text') 
 })
+
+/********************************************************
+ * Listens to the projects link in the navigation bar and
+ * turns the text to yellow when the projects section is visited.  
+ */
+document.getElementById('projects-link').addEventListener('click', () => {
+    let about = document.getElementById('about-link')
+    let contact = document.getElementById('contact-link')
+    let projects = document.getElementById('projects-link')
+
+    if(!projects.classList.contains('yellow-text'))
+        projects.classList.add('yellow-text')
+
+    if(contact.classList.contains('yellow-text'))
+        contact.classList.remove('yellow-text')
+
+    if(about.classList.contains('yellow-text'))
+        about.classList.remove('yellow-text')
+})
+
+/********************************************************
+ * Listens to the contact link in the navigation bar and
+ * turns the text to yellow when the contact section is visited.  
+ */
 document.getElementById('contact-link').addEventListener('click', () => {
-    document.getElementById('about-link').className = 'remove-underline whitesmoke-text padding20'
-    this.className += ' on'
+    let about = document.getElementById('about-link')
+    let contact = document.getElementById('contact-link')
+    let projects = document.getElementById('projects-link')
+
+    if(!contact.classList.contains('yellow-text'))
+        contact.classList.add('yellow-text')
+
+    if(about.classList.contains('yellow-text'))
+        about.classList.remove('yellow-text')
+
+    if(projects.classList.contains('yellow-text'))
+        projects.classList.remove('yellow-text')
 })
 
