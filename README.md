@@ -1,6 +1,6 @@
 # Google Software Product Sprint
 
-This repo contains the projects you'll work on throughout SPS.
+This repo contains Benjamin's portfolio and Summer 2020 SPS projects.
 
 To get started:
 
