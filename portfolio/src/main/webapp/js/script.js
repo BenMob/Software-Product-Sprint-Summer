@@ -68,4 +68,3 @@ document.getElementById('contact-link').addEventListener('click', () => {
     if(projects.classList.contains('yellow-text'))
         projects.classList.remove('yellow-text')
 })
-

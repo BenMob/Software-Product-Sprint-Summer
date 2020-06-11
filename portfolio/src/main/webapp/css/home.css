@@ -16,21 +16,13 @@
     width: 100%;
 }
 
-#intro-par{
-    font-weight: lighter; 
-    font-size: 14px;
-}
 
 #about{
-    margin-left: 2vw;
-    margin-right: 2vw;
+    width: 80%;
     padding: 20px;
     background-color:  rgb(0, 36, 61);
-    border-radius: 10px 60px 10px;
 }
-#about-wrapper{
-    padding-top: 20vh;
-}
+
 
 #projects{
     padding-top: 15vh;
@@ -97,3 +89,4 @@
 .instagram:hover{
     box-shadow: 0px -10px 5px #5B5BE9;
 }
+
