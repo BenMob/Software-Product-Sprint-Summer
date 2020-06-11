@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Benjamin Ombeni</title>
     <meta name="viewport" conatent="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--For media icons-->
@@ -18,7 +19,7 @@
                     <nav>
                         <a id ="about-link" class="remove-underline whitesmoke-text padding20 yellow-text" href="index.html#home">Home</a> <!--Change id and JS variable name to home -->
                         <a id ="projects-link" class="remove-underline whitesmoke-text padding20" href="index.html#cougar-roumie">Projects</a>
-                        <button onclick="getRandomQuoteUsingArrowFunctions() ">Demo</button>
+                        <button onclick="fetchData()">Demo</button>
                     </nav>
                 </header>
             </div> <!--End of navbar-->
@@ -54,9 +55,9 @@
                         <a href="https://www.instagram.com/bencode_journey/" target="-_blank"><button class= "instagram"><i class="fa fa-instagram"></i></button></a>
                         <p>Instagram</p>
                     </div>
-                </div id="quote-container">
-
-                <div>
+                </div>
+                <div id="data-container">
+                    <p id = "data"></p>
                 </div>
             </div>
         </section><!--End of about section-->

@@ -15,7 +15,7 @@
 /********************************************************
  * Listens to the about link in the navigation bar and
  * turns the text to yellow when the about section is visited.  
- */
+ *
 document.getElementById('about-link').addEventListener('click', () => {
     let about = document.getElementById('about-link')
     let contact = document.getElementById('contact-link')
@@ -34,7 +34,7 @@ document.getElementById('about-link').addEventListener('click', () => {
 /********************************************************
  * Listens to the projects link in the navigation bar and
  * turns the text to yellow when the projects section is visited.  
- */
+ *
 document.getElementById('projects-link').addEventListener('click', () => {
     let about = document.getElementById('about-link')
     let contact = document.getElementById('contact-link')
@@ -53,7 +53,7 @@ document.getElementById('projects-link').addEventListener('click', () => {
 /********************************************************
  * Listens to the contact link in the navigation bar and
  * turns the text to yellow when the contact section is visited.  
- */
+ *
 document.getElementById('contact-link').addEventListener('click', () => {
     let about = document.getElementById('about-link')
     let contact = document.getElementById('contact-link')
@@ -67,4 +67,22 @@ document.getElementById('contact-link').addEventListener('click', () => {
 
     if(projects.classList.contains('yellow-text'))
         projects.classList.remove('yellow-text')
-})
+})*/
+/**
+    Fetch demo
+ */
+ function fetchData(){
+     fetch('/data')
+     .then((response) => response.text()
+     .then((text) => showData(text)), () => console.log("Failed to get informatin at /data"))
+ }
+
+ function showData(data){
+     let container = document.getElementById('data-container').classList
+     let content = document.getElementById('data')
+
+     container.add('w3-container', 'w3-border', 'w3-white')
+     content.innerText = data
+     
+ }
+ 
