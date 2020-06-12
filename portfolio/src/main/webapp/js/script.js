@@ -15,7 +15,7 @@
 /*****************************************************************
  * This function requests data from the server using async await
  * @param url: The url to request from 
- * @param containerId: the id of the conatiner in which this data is 
+ * @param containerId: the id of the container in which this data is 
  *                    to be diplayed on the user interface. 
  */
  async function fetchDataAsync(url, containerId){
@@ -26,7 +26,7 @@
  }
  
 /****************************************************************
- *This fcuntion processes reponses from the server appropriatelly
+ *This function processes resgit ponses from the server appropriatelly
  * and dpresents displays them on the page
  * @param data: an array containing the data returned from the
  *                 server 

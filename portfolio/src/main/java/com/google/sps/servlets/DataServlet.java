@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -30,17 +30,7 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-    List<String> planets = new ArrayList<>();
-
-    planets.add("Mercury");
-    planets.add("Venus");
-    planets.add("Earth");
-    planets.add("Mars");
-    planets.add("Jupiter");
-    planets.add("Saturn");
-    planets.add("Uranus");
-    planets.add("Nepturne");
-
+    List<String> planets = Arrays.asList("Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Nepturne");
     response.setContentType("application/json;");
     response.getWriter().println(toJson(planets));
   }
