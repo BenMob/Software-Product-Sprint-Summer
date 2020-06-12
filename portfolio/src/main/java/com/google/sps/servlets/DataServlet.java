@@ -21,23 +21,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
+  private List<String> comments = new ArrayList<String>();  // Stores all the comments for now
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    List<String> planets = Arrays.asList("Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Nepturne");
     response.setContentType("application/json;");
-    response.getWriter().println(toJson(planets));
+    response.getWriter().println(toJson(comments));
   }
 
- /**
- Converts Java Object into JSON String
- **/
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{ 
+    comments.add(request.getParameter("comment"));
+    response.sendRedirect("demo.html");
+  }
+
+ /**********************************************
+  * Converts a Java Object into JSON String
+  * @param : A Java Object
+  * @return : Json String 
+  **/
   private String toJson(Object o){
       Gson gson = new Gson();
       return gson.toJson(o);

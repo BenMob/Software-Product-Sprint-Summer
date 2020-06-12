@@ -10,19 +10,17 @@
 </head>
 <body onload="fetchDataAsync('/data', 'data')">
     <div class="content">
-        <div class="w3-conatiner w3-margin-top">
-            <form action="/data" method="POST" class="w3-card-4 blue2-bg">
+        <div class="w3-card-4 w3-margin-top blue2-bg">
+            <form action="/data" method="POST">
                 <fieldset>
-                    <textarea class="w3-input w3-margin-top w3-margin-bottom w3-border w3-round" type="text"  placeholder="Type ..." style="resize:none">
-                    </textarea>
-                    <input class="w3-button w3-round yellow-bg blue1-text w3-margin-left"  type="submit" value="Submit">
-                    <input class="w3-button w3-round yellow-bg blue1-text w3-margin-left" type="reset" value="Reset">
+                    <textarea class="w3-input w3-margin-top w3-margin-bottom w3-border w3-round w3-light-grey" type="text" name="comment"  placeholder="Type ..." style="resize:none" required></textarea>
+                    <input class="w3-button w3-round yellow-bg blue1-text w3-margin-right"  type="submit" value="Submit">
+                    <input class="w3-button w3-round yellow-bg blue1-text w3-margin-right" type="reset" value="Reset">
                 </fieldset>
             </form>
         </div>
         <div class="w3-container w3-border w3-margin-top blue2-bg">
-            <div id="data" class="w3-panel blue1-bg blue1-text">
-
+            <div id="data" class="w3-panel blue1-bg">
             </div> 
         </div>  
     </div> 

@@ -26,7 +26,7 @@
  }
  
 /****************************************************************
- *This function processes responses from the server appropriatelly
+ * This function processes responses from the server appropriately
  * and dpresents displays them on the page
  * @param data: an array containing the data returned from the
  *                 server 
@@ -42,7 +42,7 @@ function presentData(data, containerId){
 }
 
 /***************************************************************
- *This function creates and html tag and populates it with text
+ * This function creates and html tag and populates it with text
  * @param tagName: Any html tag name 
  * @param text: text content you want to see in the tag
  *********/
@@ -57,7 +57,7 @@ function presentData(data, containerId){
 /***************************************************************
  * This funtion adds a classes insite 
  * @param htmlTag: Any HTML tag or element 
- * @param ...classes: list of classes you wnat to add
+ * @param ...classes: list of classes you want to add
  *********/
 function addClass(htmlTag, ...cssClasses){
     cssClasses.forEach((cssClass) => {
