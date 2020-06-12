@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Benjamin Ombeni</title>
     <meta name="viewport" conatent="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--For media icons-->
@@ -16,27 +17,43 @@
             <div class="navbar black-shadow" id="home-page-header">
                 <header class="nav-position">
                     <nav>
-                        <a id ="about-link" class="remove-underline whitesmoke-text padding20 yellow-text" href="index.html#home">About</a>
+                        <a id ="about-link" class="remove-underline whitesmoke-text padding20 yellow-text" href="index.html#home">Home</a> <!--Change id and JS variable name to home -->
                         <a id ="projects-link" class="remove-underline whitesmoke-text padding20" href="index.html#cougar-roumie">Projects</a>
-                        <a id ="contact-link" class="remove-underline whitesmoke-text padding20" href="index.html#contact">Contact</a>
+                        <a id ="projects-link" class="remove-underline whitesmoke-text padding20" href="demo.html">Demo Page</a>
                     </nav>
                 </header>
             </div> <!--End of navbar-->
-            <div id="about-wrapper">
-                <div class="flexbox-container-even black-shadow" id="about">
+            <div id="about-wrapper" class="padding-top-20vh">
+              <div class="flexbox-container-center">  
+                <div class="flexbox-container-even black-shadow styled-border" id="about">
                     <div>
                         <a href="index.html#cougar-roumie">
-                            <img class="yellow-shadow-onhover" id=my-portrait-img src="images/laptop.jpg" alt="Laptop lifted in the air">
+                            <img class="yellow-shadow-onhover" id=my-portrait-img src="images/profile.png" alt="Laptop lifted in the air">
                         </a>  
                     </div>
                     <div id="welcome-msg-wrapper">
                         <h2 id="welcome-msg" ><em>Hi, I am Ben</em><h2> 
-                        <p id="intro-par">I am a rising third year Software Engineering Student at <a href="https://www.csusm.edu/">California State University San Marcos</a>. Now, how did I end up in this field ?.
+                        <p class="smaller-text">I am a rising third year Software Engineering Student at <a href="https://www.csusm.edu/">California State University San Marcos</a>. Now, how did I end up in this field ?.
                             During my final year of High School, I was indecisive about what I wanted to do. So I decided to take an Introduction to Computer Science course
                             just out of pure curiosity. It was during this time that I began to understand that all the magic about that we see computers perform were nothing but very precise sets of statements 
                             written by some creative human beings somewhere. I found that very fascinating and I knew I wanted to be one of those creative people. 
                             I now aspire to use the skills I am learning to work alongside others in building solutions for different communities around the world.        
                         </p> 
+                    </div>
+                </div>
+              </div>
+                <div id="contact-wrapper" class="flexbox-container-even margin-top-10vh">
+                    <div class="center-text">
+                        <a href="https://www.linkedin.com/in/benjamin-ombeni-355489170/" target="_blank"><button class= "linkedin"><i class="fa fa-linkedin"></i></button></a>
+                        <p>Linkedin</p>
+                    </div>
+                    <div class="center-text">
+                        <a href="https://github.com/BenMob" target="_blank"><button class= "github"><i class="fa fa-github"></i></button></a>
+                        <p>Github</p>
+                    </div>
+                    <div class="center-text">
+                        <a href="https://www.instagram.com/bencode_journey/" target="-_blank"><button class= "instagram"><i class="fa fa-instagram"></i></button></a>
+                        <p>Instagram</p>
                     </div>
                 </div>
             </div>
@@ -97,34 +114,12 @@
                 </div>
             </div>
              <div class="previous-arrow-container">
-                <a href="index.html#cougar-roumie" ><img srcset="images/previous-arrow.png" alt="left-arrow"></a>
+                <a href="index.html#cougar-roumie"><img srcset="images/previous-arrow.png" alt="left-arrow"></a>
             </div> 
             <div class="next-arrow-container">
                 <a href="index.html#cougar-roumie"><img srcset="images/next-arrow.png" alt="right-arrow"></a>
             </div>
         </section><!--End of studdy buddy project-->
-<!-- ============================================================================== Contact Section ================================================================================== -->
-        <section class="full-screen" id="contact">
-            <h1 class="center-text extend-top-inner-gap">Let's connect</h1>
-             <div id="mediaPortfolio" class="flexbox-container-even">
-                 <div class="center-text">
-                    <a href="mailto:benjaminombeni3@gmail.com?subject=Mail from My Site" target="-_blank"><button class= "email"><i class="fa fa-envelope" aria-hidden="true"></i></button></a>
-                    <p>Email</p>
-                 </div>
-                 <div class="center-text">
-                    <a href="https://www.linkedin.com/in/benjamin-ombeni-355489170/" target="_blank"><button class= "linkedin"><i class="fa fa-linkedin"></i></button></a>
-                    <p>Linkedin</p>
-                </div>
-                <div class="center-text">
-                    <a href="https://github.com/BenMob" target="_blank"><button class= "github"><i class="fa fa-github"></i></button></a>
-                    <p>Github</p>
-                </div>
-                <div class="center-text">
-                    <a href="https://www.instagram.com/bencode_journey/" target="-_blank"><button class= "instagram"><i class="fa fa-instagram"></i></button></a>
-                    <p>Instagram</p>
-                </div>
-            </div> 
-        </section> <!--End contact-->
     </div><!--End of content-->
 <!-- ============================================================================== Footer ================================================================================== -->
     <div class="footer">
