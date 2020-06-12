@@ -8,11 +8,20 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
 </head>
-<body>
+<body onload="fetchDataAsync('/data', 'data')">
     <div class="content">
-        <div class="w3-container w3-border w3-margin-top">
-            <button onclick="fetchDataAsync('/data', 'data')" class="w3-button yellow w3-border w3-round-large w3-margin-top">Demo</button>
-            <div id="data" class="w3-panel yellow-bg blue1-text">
+        <div class="w3-conatiner w3-margin-top">
+            <form action="/data" method="POST" class="w3-card-4 blue2-bg">
+                <fieldset>
+                    <textarea class="w3-input w3-margin-top w3-margin-bottom w3-border w3-round" type="text"  placeholder="Type ..." style="resize:none">
+                    </textarea>
+                    <input class="w3-button w3-round yellow-bg blue1-text w3-margin-left"  type="submit" value="Submit">
+                    <input class="w3-button w3-round yellow-bg blue1-text w3-margin-left" type="reset" value="Reset">
+                </fieldset>
+            </form>
+        </div>
+        <div class="w3-container w3-border w3-margin-top blue2-bg">
+            <div id="data" class="w3-panel blue1-bg blue1-text">
 
             </div> 
         </div>  
