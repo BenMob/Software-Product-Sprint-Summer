@@ -26,7 +26,7 @@
  }
  
 /****************************************************************
- *This function processes resgit ponses from the server appropriatelly
+ *This function processes responses from the server appropriatelly
  * and dpresents displays them on the page
  * @param data: an array containing the data returned from the
  *                 server 
