@@ -15,7 +15,6 @@
 package com.google.sps.servlets;
 
 import java.io.IOException;
-import com.google.gson.Gson;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,33 +22,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import com.google.sps.services.CommentService;
+import com.google.sps.entities.Comment;
+import com.google.appengine.api.datastore.Entity;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  private List<String> comments = new ArrayList<String>();  // Stores all the comments for now
+  private List<Comment> comments = new ArrayList<Comment>();  // Stores all the comments for now
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("application/json;");
-    response.getWriter().println(toJson(comments));
+    response.getWriter().println(CommentService.toJson(comments));
   }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{ 
-    comments.add(request.getParameter("comment"));
+    final Entity commentEntity = CommentService.getEntity(request);
+    CommentService.save(commentEntity);
     response.sendRedirect("demo.html");
-  }
-
- /**********************************************
-  * Converts a Java Object into JSON String
-  * @param : A Java Object
-  * @return : Json String 
-  **/
-  private String toJson(Object o){
-      Gson gson = new Gson();
-      return gson.toJson(o);
   }
 }
 
