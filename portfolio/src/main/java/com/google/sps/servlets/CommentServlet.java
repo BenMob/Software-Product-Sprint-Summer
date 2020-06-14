@@ -19,28 +19,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
 import com.google.sps.services.CommentService;
 import com.google.sps.entities.Comment;
 import com.google.appengine.api.datastore.Entity;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
-
-  private List<Comment> comments = new ArrayList<Comment>();  // Stores all the comments for now
-
+@WebServlet("/comments")
+public class CommentServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    ArrayList<Comment> comments = CommentService.getAllComments();
     response.setContentType("application/json;");
     response.getWriter().println(CommentService.toJson(comments));
   }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{ 
-    final Entity commentEntity = CommentService.getEntity(request);
+    final Entity commentEntity = CommentService.createEntity(request);
     CommentService.save(commentEntity);
     response.sendRedirect("demo.html");
   }
