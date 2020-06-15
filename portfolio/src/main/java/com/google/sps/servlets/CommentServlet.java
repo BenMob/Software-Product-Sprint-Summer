@@ -38,7 +38,7 @@ public class CommentServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{ 
     final Entity commentEntity = CommentService.createEntity(request);
     CommentService.save(commentEntity);
-    response.sendRedirect("demo.html");
+    response.sendRedirect("index.html#comments");
   }
 }
 

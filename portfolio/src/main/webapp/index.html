@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <title>Benjamin Ombeni</title>
     <meta name="viewport" conatent="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--For media icons-->
   </head>
 </head>
-<body>
+<body onload="fetchDataAsync('/comments', 'comments')">
 <!-- ============================================================================== Navbar and About Section ================================================================================== -->
     <div class="content"><!-- Start of content -->
         <section class="full-screen" id="home">
-            <div class="navbar black-shadow" id="home-page-header">
-                <header class="nav-position">
-                    <nav>
-                        <a id ="about-link" class="remove-underline whitesmoke-text padding20 yellow-text" href="index.html#home">Home</a> <!--Change id and JS variable name to home -->
-                        <a id ="projects-link" class="remove-underline whitesmoke-text padding20" href="index.html#cougar-roumie">Projects</a>
-                        <a id ="projects-link" class="remove-underline whitesmoke-text padding20" href="demo.html">Demo Page</a>
-                    </nav>
-                </header>
+            <div class="w3-bar black-shadow navbar2">
+                <a id ="about-link" class="w3-bar-item" href="index.html#home">Home</a>
+                <a id ="projects-link" class="w3-bar-item" href="index.html#cougar-roumie">Projects</a>
+                <a id ="cv-link" class="w3-bar-item" href="pdf/Resume.pdf">CV</a>
+                <a id ="comment-link" class="w3-bar-item yellow-bg blue1-text" href="index.html#comments">Leave a comment!</a>
             </div> <!--End of navbar-->
             <div id="about-wrapper" class="padding-top-20vh">
               <div class="flexbox-container-center">  
@@ -32,8 +29,8 @@
                         </a>  
                     </div>
                     <div id="welcome-msg-wrapper">
-                        <h2 id="welcome-msg" ><em>Hi, I am Ben</em><h2> 
-                        <p class="smaller-text">I am a rising third year Software Engineering Student at <a href="https://www.csusm.edu/">California State University San Marcos</a>. Now, how did I end up in this field ?.
+                        <h2 id="welcome-msg" ><em class="font-26">Hi, I am Ben</em><h2> 
+                        <p>I am a rising third year Software Engineering Student at <a href="https://www.csusm.edu/">California State University San Marcos</a>. Now, how did I end up in this field ?.
                             During my final year of High School, I was indecisive about what I wanted to do. So I decided to take an Introduction to Computer Science course
                             just out of pure curiosity. It was during this time that I began to understand that all the magic about that we see computers perform were nothing but very precise sets of statements 
                             written by some creative human beings somewhere. I found that very fascinating and I knew I wanted to be one of those creative people. 
@@ -44,87 +41,86 @@
               </div>
                 <div id="contact-wrapper" class="flexbox-container-even margin-top-10vh">
                     <div class="center-text">
-                        <a href="https://www.linkedin.com/in/benjamin-ombeni-355489170/" target="_blank"><button class= "linkedin"><i class="fa fa-linkedin"></i></button></a>
-                        <p>Linkedin</p>
+                        <a href="https://www.linkedin.com/in/benjamin-ombeni-355489170/" target="_blank"><i class="fa fa-linkedin" style="font-size: 36px"></i></a>
                     </div>
                     <div class="center-text">
-                        <a href="https://github.com/BenMob" target="_blank"><button class= "github"><i class="fa fa-github"></i></button></a>
-                        <p>Github</p>
+                        <a href="https://github.com/BenMob" target="_blank"><i class="fa fa-github" style="font-size: 36px"></i></a>
                     </div>
                     <div class="center-text">
-                        <a href="https://www.instagram.com/bencode_journey/" target="-_blank"><button class= "instagram"><i class="fa fa-instagram"></i></button></a>
-                        <p>Instagram</p>
+                        <a href="https://www.instagram.com/bencode_journey/" target="-_blank"><i class="fa fa-instagram" style="font-size: 36px"></i></a>
                     </div>
                 </div>
             </div>
         </section><!--End of about section-->
-<!-- ============================================================================== Cougar Roomie Project Section================================================================================== -->
+<!-- ============================================================================== Project Section ================================================================================== -->
         <section class="full-screen" id="cougar-roumie">
-            <h1 class="center-text extend-top-inner-gap">Projects</h1>
-            <div class="flexbox-container-center black-shadow">
-                <div class="flexbox-item blue1-bg">
-                    <h3 class="center-text">Cougar Roomie</h3>
-                    <p class="center-text">Teamed up with three other students to build and design this beautiful web application for finding roommates.<p>
-                    <hr>
-                    <h4 class="center-text">Personal Contribution</h4>
-                    <ul>
-                        <li>Implemented the backend logic that handles the upload and storage of our users profile images in a PostgreSQL database, using Spring Data JPA and Thymeleaf.</li>
-                    </ul>
-                    <div class="flexbox-container-expand">
-                        <div class="flexbox-item yellow-bg">
-                            <p class="center-text blue1-text"><a id="cc-demo" class="remove-underline blue1-text" href="http://cougarroomie.tech/">Demo</a></p>
+            <h2 class="center-text extend-top-inner-gap">Projects</h2>
+            <div class="flexbox-container-center">
+                <div class="flexbox-container-even black-shadow styled-border p80-width">
+                    <div class="flexbox-item blue1-bg">
+                        <h3 class="center-text">Cougar Roomie</h3>
+                        <p class="center-text">Teamed up with three other students to build and design this beautiful web application for finding roommates.<p>
+                        <hr>
+                        <h4 class="center-text">Personal Contribution</h4>
+                        <ul>
+                            <li>Implemented the backend logic that handles the upload and storage of our users profile images in a PostgreSQL database, using Spring Data JPA and Thymeleaf.</li>
+                        </ul>
+                        <div class="flexbox-container-expand">
+                            <div class="flexbox-item yellow-bg">
+                                <p class="center-text blue1-text"><a id="cc-demo" class="remove-underline blue1-text" href="http://cougarroomie.tech/">Demo</a></p>
+                            </div>
+                            <div class="flexbox-item yellow-bg">
+                                <p class="center-text blue1-text">Source: <span class="red-text">Private<span></p>
+                            </div><br>
                         </div>
-                        <div class="flexbox-item yellow-bg">
-                            <p class="center-text blue1-text">Source: <span class="red-text">Private<span></p>
-                        </div><br>
+                        <p class="center-text smaller-font">Feb 2020 - May 2020</p>
                     </div>
-                    <p class="center-text smaller-font">Feb 2020 - May 2020</p>
+                <!-- Split -->
+                    <div class="flexbox-item blue1-bg">
+                        <h3 class="center-text">Study Buddy</h3>
+                        <p class="center-text">During my participation in the <a href="https://buildyourfuture.withgoogle.com/programs/softwareproductsprint/" class="remove-underline whitesmoke-text">
+                        Spring 2020 Software Product Sprint</a>, I had the opportunity to team up with two other students to design and build a web application for finding study partners based on school and course preferences.<p>
+                        <hr>
+                        <h4 class="center-text">Personal Contribution</h4>
+                        <ul>
+                            <li>Implemented the authentication system using OAuth.</li>
+                            <li>Implemented the backend logic for user matching using Java Servlets and Google's Datastore Queries.</li>
+                        </ul>
+                        <div class="flexbox-container-expand">
+                            <div class="flexbox-item yellow-bg">
+                                <p class="center-text blue1-text"><a id="ss-demo" class="remove-underline blue1-text" href="http://study-buddy-272615.appspot.com/">Demo</a></p>
+                            </div>
+                            <div class="flexbox-item yellow-bg">
+                                <p class="center-text blue1-text"><a class="remove-underline" href="https://github.com/mpasetes17/studyBuddy"><span class="blue1-text">Source: </span><span class="green-text">Available</span></a></p>
+                            </div>
+                        </div>
+                        <p class="center-text smaller-font">Feb 2020 - Now</p>
+                    </div>
                 </div>
-            </div>
-            <div class="previous-arrow-container">
-                <a href="index.html#study-buddy"><img srcset="images/previous-arrow.png" alt="left-arrow"></a>
-            </div>
-            <div class="next-arrow-container">
-                <a href="index.html#study-buddy"><img srcset="images/next-arrow.png" alt="right-arrow"></a>
-            </div>
+            </div> <!--End of Projects -->
         </section>
-<!-- ==============================================================================Study Buddy Project Section================================================================================== -->
-        <section class="full-screen" id="study-buddy">
-            <h1 class="center-text extend-top-inner-gap">Projects</h1>
-            <div class="flexbox-container-center black-shadow">
-                <div class="flexbox-item blue1-bg">
-                    <h3 class="center-text">Study Buddy</h3>
-                    <p class="center-text">During my participation in the <a href="https://buildyourfuture.withgoogle.com/programs/softwareproductsprint/" class="remove-underline whitesmoke-text">
-                    Spring 2020 Software Product Sprint</a>, I had the opportunity to team up with two other students to design and build a web application for finding study partners based on school and course preferences.<p>
-                    <hr>
-                    <h4 class="center-text">Personal Contribution</h4>
-                    <ul>
-                        <li>Implemented the authentication system using OAuth.</li>
-                        <li>Implemented the backend logic for user matching using Java Servlets and Google's Datastore Queries.</li>
-                    </ul>
-                    <div class="flexbox-container-expand">
-                        <div class="flexbox-item yellow-bg">
-                            <p class="center-text blue1-text"><a id="ss-demo" class="remove-underline blue1-text" href="http://study-buddy-272615.appspot.com/">Demo</a></p>
-                        </div>
-                        <div class="flexbox-item yellow-bg">
-                            <p class="center-text blue1-text"><a class="remove-underline" href="https://github.com/mpasetes17/studyBuddy"><span class="blue1-text">Source: </span><span class="green-text">Available</span></a></p>
-                        </div>
-                    </div>
-                    <p class="center-text smaller-font">Feb 2020 - Now</p>
-                </div>
+<!-- ============================================================================== Comments ================================================================================== -->
+        <section id="comments" class="full-screen">
+            <div class="w3-card-4">
+                <h2 class="center-text extend-top-inner-gap">Comments</h2>
+                <form action="/comments" method="POST">
+                    <fieldset>
+                        <input class="w3-input w3-margin-top w3-margin-bottom w3-border w3-round w3-light-grey" type="text" name="author" style="width:25%;"  placeholder="Nickname" required>
+                        <textarea class="w3-input w3-margin-top w3-margin-bottom w3-border w3-round w3-light-grey" type="text" name="comment"  placeholder="Comment ..." style="resize:none" required></textarea>
+                        <input class="w3-button w3-round yellow-bg blue1-text w3-margin-right"  type="submit" value="Submit">
+                        <input class="w3-button w3-round yellow-bg blue1-text w3-margin-right" type="reset" value="Reset">
+                    </fieldset>
+                </form>
             </div>
-             <div class="previous-arrow-container">
-                <a href="index.html#cougar-roumie"><img srcset="images/previous-arrow.png" alt="left-arrow"></a>
-            </div> 
-            <div class="next-arrow-container">
-                <a href="index.html#cougar-roumie"><img srcset="images/next-arrow.png" alt="right-arrow"></a>
-            </div>
-        </section><!--End of studdy buddy project-->
+            <div class="w3-margin-top ">
+                <div id="comments" class="w3-card-4 w3-round margin-bottom-100"></div> 
+            </div>  
+        </section>
     </div><!--End of content-->
 <!-- ============================================================================== Footer ================================================================================== -->
     <div class="footer">
         <footer class="footer">
-           <p>Designed and Built by Benjamin Ombeni, <a target="_blank" href="https://icons8.com/icons/set/arrow--v1">Arrow icon</a> by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+           <p class="smaller-text">Designed and Built by Benjamin Ombeni</p>
         </footer>
     </div>
 </body>

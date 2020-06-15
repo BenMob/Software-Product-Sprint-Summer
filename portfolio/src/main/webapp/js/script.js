@@ -34,9 +34,17 @@
 function presentData(data, containerId){
     const container = document.getElementById(containerId)
     let ul = document.createElement('ul');
-    addClass(ul, 'w3-ul', 'w3-round-16') // Adds some classes to the ul for styling
+    addClass(ul, 'w3-ul', 'w3-round-16', 'w3-margin') // Adds some classes to the ul for styling
     data.forEach(dataItem => {
-        ul.appendChild(createHtmlTag('li', dataItem))     
+        let author = createHtmlTag('p', '').appendChild(createHtmlTag('strong', dataItem.author))
+        let comment = createHtmlTag('p', dataItem.comment)
+        let commentBlock = createHtmlTag('li', '')
+
+        commentBlock.appendChild(author)
+        commentBlock.appendChild(comment)
+
+        addClass(commentBlock, 'w3-panel', 'w3-border', 'w3-margin-bottom')
+        ul.appendChild(commentBlock)    
     })
     container.appendChild(ul)
 }
@@ -50,7 +58,6 @@ function presentData(data, containerId){
      const tag = document.createElement(tagName)
      const content = document.createTextNode(text)
      tag.appendChild(content)
-     addClass(tag, 'w3-border-black') // Adds a class to the li for styling
      return tag
  }
 
