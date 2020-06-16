@@ -1,6 +1,7 @@
 
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
 }
 
 body{
@@ -20,7 +21,7 @@ a:hover{
 .content{
     color:whitesmoke;
     bottom: 0%;
-    width: 960px;
+    width: 80%;
     margin-left: auto;
     margin-right:auto;
     background-color: rgb(0, 36, 61);
@@ -32,9 +33,23 @@ a:hover{
   top: 0;
   background-color: rgb(0, 36, 61);
   padding: 20px;
-  height: 20px; 
+  height: 20px;
   width: 100%;
   left: 0;
+}
+
+.navbar2{
+    position: fixed;
+    top: 0;
+    background-color: rgb(0, 36, 61); 
+}
+
+.height-20{
+    height: 20px;
+}
+
+.font-26{
+    font-size: 26px;
 }
 
 .navbar-img{
@@ -69,6 +84,10 @@ a:hover{
 
 .center-text{
     text-align: center;
+}
+.smaller-text{
+    font-weight: lighter; 
+    font-size: 14px;
 }
 
 .blue1-text{
@@ -173,8 +192,16 @@ a:hover{
    padding: 20px; 
 }
 
+.padding-top-20vh{
+    padding-top: 20vh; 
+}
+
 .margin-bottom-100{
    margin-bottom: 100px;
+}
+
+.margin-top-10vh{
+    margin-top: 10vh; 
 }
 
 .nav-position{
@@ -192,5 +219,30 @@ a:hover{
   color: rgb(247, 227, 92);  
 }
 
+.styled-border{
+    border-radius: 10px 60px 10px;
+}
+
+.p80-width{
+    width: 80%;
+}
 
 
+@media only screen and (max-width: 700px){
+    .content{
+        width: 100%;
+    }
+
+    .padding-top-20vh{
+        padding-top: 50px; 
+    }
+
+    .margin-top-10vh{
+        margin-top: 5px;
+    }
+
+    .styled-border{
+        border-radius: 10px;
+        text-align: center;
+    }
+}

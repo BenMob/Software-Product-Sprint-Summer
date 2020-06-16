@@ -12,60 +12,63 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/********************************************************
- * Listens to the about link in the navigation bar and
- * turns the text to yellow when the about section is visited.  
+/*****************************************************************
+ * This function requests data from the server using async await
+ * @param url: The url to request from 
+ * @param containerId: the id of the container in which this data is 
+ *                    to be diplayed on the user interface. 
  */
-document.getElementById('about-link').addEventListener('click', () => {
-    let about = document.getElementById('about-link')
-    let contact = document.getElementById('contact-link')
-    let projects = document.getElementById('projects-link')
+ async function fetchDataAsync(url, containerId){
+     const response = await fetch(url)
+     const data = await response.json()
+     presentData(data, containerId)
+     console.log(data)
+ }
+ 
+/****************************************************************
+ * This function processes responses from the server appropriately
+ * and dpresents displays them on the page
+ * @param data: an array containing the data returned from the
+ *                 server 
+ *********/
+function presentData(data, containerId){
+    const container = document.getElementById(containerId)
+    let ul = document.createElement('ul');
+    addClass(ul, 'w3-ul', 'w3-round-16', 'w3-margin') // Adds some classes to the ul for styling
+    data.forEach(dataItem => {
+        let author = createHtmlTag('p', '').appendChild(createHtmlTag('strong', dataItem.author))
+        let comment = createHtmlTag('p', dataItem.comment)
+        let commentBlock = createHtmlTag('li', '')
 
-    if(!about.classList.contains('yellow-text'))
-  	    about.classList.add('yellow-text')
+        commentBlock.appendChild(author)
+        commentBlock.appendChild(comment)
 
-    if(contact.classList.contains('yellow-text'))
-  	    contact.classList.remove('yellow-text')
+        addClass(commentBlock, 'w3-panel', 'w3-border', 'w3-margin-bottom')
+        ul.appendChild(commentBlock)    
+    })
+    container.appendChild(ul)
+}
 
-    if(projects.classList.contains('yellow-text'))
-        projects.classList.remove('yellow-text') 
-})
+/***************************************************************
+ * This function creates and html tag and populates it with text
+ * @param tagName: Any html tag name 
+ * @param text: text content you want to see in the tag
+ *********/
+ function createHtmlTag(tagName, text){
+     const tag = document.createElement(tagName)
+     const content = document.createTextNode(text)
+     tag.appendChild(content)
+     return tag
+ }
 
-/********************************************************
- * Listens to the projects link in the navigation bar and
- * turns the text to yellow when the projects section is visited.  
- */
-document.getElementById('projects-link').addEventListener('click', () => {
-    let about = document.getElementById('about-link')
-    let contact = document.getElementById('contact-link')
-    let projects = document.getElementById('projects-link')
-
-    if(!projects.classList.contains('yellow-text'))
-        projects.classList.add('yellow-text')
-
-    if(contact.classList.contains('yellow-text'))
-        contact.classList.remove('yellow-text')
-
-    if(about.classList.contains('yellow-text'))
-        about.classList.remove('yellow-text')
-})
-
-/********************************************************
- * Listens to the contact link in the navigation bar and
- * turns the text to yellow when the contact section is visited.  
- */
-document.getElementById('contact-link').addEventListener('click', () => {
-    let about = document.getElementById('about-link')
-    let contact = document.getElementById('contact-link')
-    let projects = document.getElementById('projects-link')
-
-    if(!contact.classList.contains('yellow-text'))
-        contact.classList.add('yellow-text')
-
-    if(about.classList.contains('yellow-text'))
-        about.classList.remove('yellow-text')
-
-    if(projects.classList.contains('yellow-text'))
-        projects.classList.remove('yellow-text')
-})
-
+/***************************************************************
+ * This funtion adds a classes insite 
+ * @param htmlTag: Any HTML tag or element 
+ * @param ...classes: list of classes you want to add
+ *********/
+function addClass(htmlTag, ...cssClasses){
+    cssClasses.forEach((cssClass) => {
+        htmlTag.classList.add(cssClass)
+    })
+    return htmlTag
+}

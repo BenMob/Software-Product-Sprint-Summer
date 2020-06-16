@@ -16,21 +16,13 @@
     width: 100%;
 }
 
-#intro-par{
-    font-weight: lighter; 
-    font-size: 14px;
-}
 
 #about{
-    margin-left: 2vw;
-    margin-right: 2vw;
+    width: 80%;
     padding: 20px;
     background-color:  rgb(0, 36, 61);
-    border-radius: 10px 60px 10px;
 }
-#about-wrapper{
-    padding-top: 20vh;
-}
+
 
 #projects{
     padding-top: 15vh;
@@ -43,12 +35,16 @@
 #cc-demo:hover{
     border-radius: 10px;
     padding: 5px;
-    background-color: rgb(0, 36, 61)
+    background-color: rgb(0, 36, 61);
 }
 #ss-demo:hover{
     border-radius: 10px;
     padding: 5px;
-    background-color: rgb(0, 36, 61)
+    background-color: rgb(0, 36, 61);
+}
+
+#comment-link:hover{
+    color: rgb(0, 36, 61);
 }
 
 /*Media icons styling starts here*/
@@ -57,6 +53,8 @@
     background-color: #0077B5;
     color: white;
     border-radius: 15%;
+    height: 20px;
+    width: 20px;
 }
 
 .linkedin:hover{
@@ -68,6 +66,8 @@
     color: white;
     background-color: black;
     border-radius: 15%;
+    height: 20px;
+    width: 20px;
 }
 .github:hover{
     box-shadow: 0px -10px 5px black;
@@ -79,7 +79,8 @@
     color: rgb(178, 49, 33);
     background: rgb(238, 238, 238);
     border-radius: 15%;
-
+    height: 20px;
+    width: 20px;
 }
 
 .email:hover{
@@ -93,7 +94,10 @@
     background: #d6249f;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
     box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+    height: 20px;
+    width: 20px;
 }
 .instagram:hover{
     box-shadow: 0px -10px 5px #5B5BE9;
 }
+

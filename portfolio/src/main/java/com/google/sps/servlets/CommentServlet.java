@@ -14,19 +14,37 @@
 
 package com.google.sps.servlets;
 
+import com.google.sps.services.CommentService;
+import com.google.sps.entities.Comment;
+import com.google.appengine.api.datastore.Entity;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
-
+@WebServlet("/comments")
+public class CommentServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello world!</h1>");
+    List<Comment> comments = CommentService.getAllComments();
+    response.setContentType("application/json;");
+    response.getWriter().println(CommentService.toJson(comments));
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{ 
+    final Entity commentEntity = CommentService.createEntity(request);
+    CommentService.save(commentEntity);
+    response.sendRedirect("index.html#comments");
   }
 }
+
+
+
+
+
+
