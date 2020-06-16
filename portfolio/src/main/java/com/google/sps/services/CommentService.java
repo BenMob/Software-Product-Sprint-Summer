@@ -8,17 +8,20 @@ package com.google.sps.services;
  *
  * TODO: Consider doing exeption handling where appropriate
  */
- import com.google.appengine.api.datastore.Entity;
+ 
+ 
  import com.google.appengine.api.datastore.DatastoreService;
  import com.google.appengine.api.datastore.DatastoreServiceFactory;
+ import com.google.appengine.api.datastore.Entity;
  import com.google.appengine.api.datastore.PreparedQuery;
  import com.google.appengine.api.datastore.Query;
  import com.google.appengine.api.datastore.Query.SortDirection;
  import com.google.sps.entities.Comment;
+ import java.util.ArrayList;
  import java.util.Enumeration;
  import javax.servlet.http.HttpServletRequest;
- import java.util.ArrayList;
-
+ import java.util.List;
+ 
  public final class CommentService extends Services {
 
     /*********************************************************************** 
@@ -74,17 +77,15 @@ package com.google.sps.services;
       *
       * @return: java.util.ArrayList<Comment> 
       */
-      public static ArrayList<Comment> getAllComments(){
+      public static List<Comment> getAllComments(){
           Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
           DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
           PreparedQuery results = dataStore.prepare(query);
 
-          ArrayList<Comment> comments = new ArrayList<>();
+          List<Comment> comments = new ArrayList<>();
           for(Entity entity: results.asIterable()){
               comments.add(getComment(entity)); 
           }
           return comments;
       }
  }
-
- 

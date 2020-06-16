@@ -13,8 +13,7 @@ package com.google.sps.services;
     * @return : Json String 
     **/
     public static String toJson(Object o){
-        Gson gson = new Gson();
-        return gson.toJson(o);
+        return new Gson().toJson(o);
     }
  }
 
