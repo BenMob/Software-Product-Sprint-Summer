@@ -1,7 +1,7 @@
 package com.google.sps.services;
 
 
-public final class AuthenticationSevice extends Services{
+public final class AuthenticationService extends Services{
 
     public static boolean userIsLoggedIn(){
         return false;

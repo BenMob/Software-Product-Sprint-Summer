@@ -34,16 +34,19 @@
 function presentData(data, containerId){
     const container = document.getElementById(containerId)
     let ul = document.createElement('ul');
-    addClass(ul, 'w3-ul', 'w3-round-16', 'w3-margin') // Adds some classes to the ul for styling
+    addClass(ul, 'w3-ul', 'w3-border-0', 'w3-round-16')
     data.forEach(dataItem => {
         let author = createHtmlTag('p', '').appendChild(createHtmlTag('strong', dataItem.author))
         let comment = createHtmlTag('p', dataItem.comment)
+        addClass(comment, 'w3-padding', 'w3-round-xxlarge', 'yellow-bg', 'blue1-text', 'smaller-text')
+
         let commentBlock = createHtmlTag('li', '')
+        addClass(commentBlock, 'w3-panel', 'black-shadow', "w3-round-xlarge", 'tiny-bottom-margin', 'w3-padding')
 
         commentBlock.appendChild(author)
         commentBlock.appendChild(comment)
 
-        addClass(commentBlock, 'w3-panel', 'w3-border', 'w3-margin-bottom')
+        
         ul.appendChild(commentBlock)    
     })
     container.appendChild(ul)
