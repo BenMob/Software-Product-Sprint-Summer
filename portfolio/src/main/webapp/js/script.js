@@ -24,6 +24,14 @@
      presentData(data, containerId)
      console.log(data)
  }
+
+ async function fetchLogout(){
+     const response = await fetch("/authentication", {
+         method:'POST',
+         headers: {'Content-Type': 'text/plain'},
+         body: JSON.stringify({'logout':'true'})
+        })
+ }
  
 /****************************************************************
  * This function processes responses from the server appropriately

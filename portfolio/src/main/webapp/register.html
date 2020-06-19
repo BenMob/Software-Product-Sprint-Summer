@@ -18,8 +18,8 @@
             <div class="flexbox-container-center padding-top-20vh">
                 <div class="w3-container w3-round-xlarge w3-padding-32 yellow-border black-shadow p40-width">
                     <div class="w3-container"><h3>Let's get you a username &#128512;</h3><div>
-                    <form>
-                        <input class="w3-input w3-round w3-light-grey" type="text" placeholder="Username" required>
+                    <form method="POST" action="/authentication">
+                        <input class="w3-input w3-round w3-light-grey" type="text" placeholder="Username" name="username" required>
                         <button class="w3-button w3-round-xxlarge w3-margin-top blue1-text yellow-bg" type="submit">Submit</button>
                     </form>
                 </div>

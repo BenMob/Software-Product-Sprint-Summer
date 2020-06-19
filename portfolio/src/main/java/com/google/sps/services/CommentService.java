@@ -46,7 +46,10 @@ package com.google.sps.services;
       * properties from request parameters.
       *
       * @param: javax.servlet.http.HttpServletRequest
-      * @return: com.google.sps.entities.Comment
+      * @return: com.google.appengine.api.datastore.Entity (Comment)
+      *
+      *  TODO: Potential Improvement: 
+      *           Move this function to Services.java and make it usabale on anyone of my entities. 
       */
      public static Entity createEntity(HttpServletRequest request){
          Entity commentEntity = new Entity("Comment");
@@ -61,15 +64,6 @@ package com.google.sps.services;
 
          return commentEntity;
      }
-
-     /*******************************************************************
-      * This method takes a Comment Entity and saves in dataStore
-      * @param: com.google.sps.entities.Comment
-      */
-      public static void save(Entity commentEntity){
-          DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-          datastore.put(commentEntity);
-      }
 
        /********************************************************************
       * Queries all the Comments from datatsore in ascending order based on
