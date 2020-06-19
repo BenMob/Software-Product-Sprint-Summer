@@ -42,7 +42,7 @@ public class CommentServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
     UserService userService = UserServiceFactory.getUserService();
     if(userService.isUserLoggedIn()){  
-        final Entity commentEntity = CommentService.createEntity(request);
+        final Entity commentEntity = CommentService.createCommentEntity(request);
         CommentService.save(commentEntity);
         response.sendRedirect("index.html#comments");
     }else response.sendRedirect(userService.createLoginURL("/register.html"));

@@ -25,12 +25,21 @@
      console.log(data)
  }
 
- async function fetchLogout(){
-     const response = await fetch("/authentication", {
-         method:'POST',
-         headers: {'Content-Type': 'text/plain'},
-         body: JSON.stringify({'logout':'true'})
-        })
+ async function fetchAuthenticationServletAsync(url, containerId){
+     const response = await fetch(url)
+     const authInfo =await response.json()
+     processAuthInfo(authInfo, containerId)
+ }
+
+ function processAuthInfo(authInfo, containerId){
+     console.log("LoggedIn: " + authInfo.userIsLoggedIn)
+     let logButton = document.getElementById(containerId)
+     logButton.setAttribute('href', authInfo.link)
+     if(authInfo.userIsLoggedIn){
+         logButton.innerText = "Logout"
+     }else{
+         logButton.innerText = "Login"
+     }
  }
  
 /****************************************************************
@@ -82,4 +91,13 @@ function addClass(htmlTag, ...cssClasses){
         htmlTag.classList.add(cssClass)
     })
     return htmlTag
+}
+
+/*******
+ * This is the home page's even log   
+ */
+
+window.onload = () =>{
+    fetchAuthenticationServletAsync('authentication', 'login-logout')
+    fetchDataAsync('/comments', 'comment-list')
 }

@@ -51,7 +51,7 @@ package com.google.sps.services;
       *  TODO: Potential Improvement: 
       *           Move this function to Services.java and make it usabale on anyone of my entities. 
       */
-     public static Entity createEntity(HttpServletRequest request){
+     public static Entity createCommentEntity(HttpServletRequest request){
          Entity commentEntity = new Entity("Comment");
          Enumeration<String> parameterNames = request.getParameterNames();
 
