@@ -19,7 +19,7 @@ public class AuthenticationServlet extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         UserService userService = UserServiceFactory.getUserService();
-        Authentication authInfo = AuthenticationService.getAuthenticationInfo(userService, "/index.html");
+        Authentication authInfo = AuthenticationService.getAuthenticationInfo(userService);
         response.setContentType("application/json");
         response.getWriter().println(AuthenticationService.toJson(authInfo));
     }
@@ -27,7 +27,7 @@ public class AuthenticationServlet extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
         UserService userService = UserServiceFactory.getUserService();
-        if(userService.isUserLoggedIn()){ // Save User Info
+        if(userService.isUserLoggedIn()){
             final Entity userEntity = AuthenticationService.createUserEntity(request, userService);
             AuthenticationService.save(userEntity);
             response.sendRedirect("/index.html#comments");

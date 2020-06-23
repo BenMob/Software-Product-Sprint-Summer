@@ -4,13 +4,15 @@
  **/
  public final class Comment{
      private final long id;
-     private final String author;
+     private final long userId;
+     private final String username;
      private final String comment;
      private final long timestamp;
 
-     public Comment(long id, String author, String comment, long timestamp){
+     public Comment(long id, long userId, String username, String comment, long timestamp){
          this.id = id;
-         this.author = author;
+         this.userId = userId;
+         this.username = username;
          this.comment = comment;
          this.timestamp = timestamp;
      }

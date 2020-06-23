@@ -18,8 +18,7 @@
                 <a id ="about-link" class="w3-bar-item" href="index.html#home">Home</a>
                 <a id ="projects-link" class="w3-bar-item" href="index.html#cougar-roumie">Projects</a>
                 <a id ="cv-link" class="w3-bar-item" href="pdf/Resume.pdf">CV</a>
-                <a id ="comment-link" class="w3-bar-item yellow-bg blue1-text w3-round-xxlarge" href="index.html#comments">Leave a comment!</a>
-                <a id ="login-logout" class="w3-bar-item w3-right"  href=""></a>
+                <a id ="login-logout" class="w3-bar-item yellow-bg blue1-text w3-round-xxlarge w3-right"  href=""></a>
             </div> <!--End of navbar-->
             <div id="about-wrapper" class="padding-top-20vh">
               <div class="flexbox-container-center">  
@@ -102,11 +101,10 @@
         </section>
 <!-- ============================================================================== Comments ================================================================================== -->
         <section id="comments" class="full-screen">
-            <div class="flexbox-container-center padding-top-7vh">
+            <div class="flexbox-container-center padding-top-10vh">
                 <div class="w3-container w3-round-xlarge w3-padding-bottom yellow-border black-shadow p80-width">
                     <h2 class="center-text">Leave a comment &#128075;</h2>
                     <form action="/comments" method="POST">
-                        <input class="w3-input  w3-margin-bottom w3-round w3-light-grey" type="text" name="author" style="width:25%;"  placeholder="Nickname" required>
                         <textarea class="w3-input w3-round w3-light-grey" type="text" name="comment"  placeholder="Comment ..." style="resize:none" required></textarea>
                         <input class="w3-button w3-round-xxlarge w3-margin-top w3-margin-bottom blue1-text yellow-bg"  type="submit" value="Submit">
                         <input class="w3-button w3-round-xxlarge w3-margin-top w3-margin-bottom blue1-text yellow-bg" type="reset" value="Clear">

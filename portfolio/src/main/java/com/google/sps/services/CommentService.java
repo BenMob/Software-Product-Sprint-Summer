@@ -17,6 +17,7 @@ package com.google.sps.services;
  import com.google.appengine.api.datastore.Query;
  import com.google.appengine.api.datastore.Query.SortDirection;
  import com.google.sps.entities.Comment;
+ import com.google.sps.entities.User;
  import java.util.ArrayList;
  import java.util.Enumeration;
  import javax.servlet.http.HttpServletRequest;
@@ -31,10 +32,11 @@ package com.google.sps.services;
     * @param: com.google.appengine.api.datastore.Entity;
     * @return: com.google.sps.entities.Comment
     ***/
-     public static Comment getComment(Entity entity){
+     public static Comment getCommentObject(Entity entity){
         Comment comment = new Comment(
             entity.getKey().getId(),
-            (String)entity.getProperty("author"),
+            (long)entity.getProperty("userId"),
+            (String)entity.getProperty("username"),
             (String)entity.getProperty("comment"),
             (long)entity.getProperty("timestamp")
         );
@@ -51,15 +53,18 @@ package com.google.sps.services;
       *  TODO: Potential Improvement: 
       *           Move this function to Services.java and make it usabale on anyone of my entities. 
       */
-     public static Entity createCommentEntity(HttpServletRequest request){
+     public static Entity createCommentEntity(HttpServletRequest request, User user){
          Entity commentEntity = new Entity("Comment");
-         Enumeration<String> parameterNames = request.getParameterNames();
+         commentEntity.setProperty("userId", user.getId());
+         commentEntity.setProperty("username", user.getUsername());
 
+         Enumeration<String> parameterNames = request.getParameterNames();
          while(parameterNames.hasMoreElements()){
              String name = parameterNames.nextElement();
              String property = request.getParameter(name);
              commentEntity.setProperty(name, property);
          }
+
          commentEntity.setProperty("timestamp", (long)System.currentTimeMillis());
 
          return commentEntity;
@@ -78,7 +83,7 @@ package com.google.sps.services;
 
           List<Comment> comments = new ArrayList<>();
           for(Entity entity: results.asIterable()){
-              comments.add(getComment(entity)); 
+              comments.add(getCommentObject(entity)); 
           }
           return comments;
       }
