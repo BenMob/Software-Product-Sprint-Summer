@@ -10,19 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--For media icons-->
   </head>
 </head>
-<body onload="fetchDataAsync('/comments', 'comments')">
+<body>
 <!-- ============================================================================== Navbar and About Section ================================================================================== -->
     <div class="content"><!-- Start of content -->
         <section class="full-screen" id="home">
-            <div class="w3-bar black-shadow navbar2">
+            <div class="w3-bar w3-padding black-shadow navbar">
                 <a id ="about-link" class="w3-bar-item" href="index.html#home">Home</a>
                 <a id ="projects-link" class="w3-bar-item" href="index.html#cougar-roumie">Projects</a>
                 <a id ="cv-link" class="w3-bar-item" href="pdf/Resume.pdf">CV</a>
-                <a id ="comment-link" class="w3-bar-item yellow-bg blue1-text" href="index.html#comments">Leave a comment!</a>
+                <a id ="login-logout" class="w3-bar-item yellow-bg blue1-text w3-round-xxlarge w3-right"  href=""></a>
             </div> <!--End of navbar-->
             <div id="about-wrapper" class="padding-top-20vh">
               <div class="flexbox-container-center">  
-                <div class="flexbox-container-even black-shadow styled-border" id="about">
+                <div class="flexbox-container-even black-shadow styled-border yellow-border" id="about">
                     <div>
                         <a href="index.html#cougar-roumie">
                             <img class="yellow-shadow-onhover" id=my-portrait-img src="images/profile.png" alt="Laptop lifted in the air">
@@ -55,9 +55,9 @@
 <!-- ============================================================================== Project Section ================================================================================== -->
         <section class="full-screen" id="cougar-roumie">
             <h2 class="center-text extend-top-inner-gap">Projects</h2>
-            <div class="flexbox-container-center">
-                <div class="flexbox-container-even black-shadow styled-border p80-width">
-                    <div class="flexbox-item blue1-bg">
+            <div class="w3-container flexbox-container-center">
+                <div class="flexbox-container-even black-shadow styled-border yellow-border p80-width">
+                    <div class="w3-container flexbox-item blue1-bg styled-border">
                         <h3 class="center-text">Cougar Roomie</h3>
                         <p class="center-text">Teamed up with three other students to build and design this beautiful web application for finding roommates.<p>
                         <hr>
@@ -76,7 +76,7 @@
                         <p class="center-text smaller-font">Feb 2020 - May 2020</p>
                     </div>
                 <!-- Split -->
-                    <div class="flexbox-item blue1-bg">
+                    <div class="w3-container flexbox-item blue1-bg styled-border">
                         <h3 class="center-text">Study Buddy</h3>
                         <p class="center-text">During my participation in the <a href="https://buildyourfuture.withgoogle.com/programs/softwareproductsprint/" class="remove-underline whitesmoke-text">
                         Spring 2020 Software Product Sprint</a>, I had the opportunity to team up with two other students to design and build a web application for finding study partners based on school and course preferences.<p>
@@ -101,20 +101,17 @@
         </section>
 <!-- ============================================================================== Comments ================================================================================== -->
         <section id="comments" class="full-screen">
-            <div class="w3-card-4">
-                <h2 class="center-text extend-top-inner-gap">Comments</h2>
-                <form action="/comments" method="POST">
-                    <fieldset>
-                        <input class="w3-input w3-margin-top w3-margin-bottom w3-border w3-round w3-light-grey" type="text" name="author" style="width:25%;"  placeholder="Nickname" required>
-                        <textarea class="w3-input w3-margin-top w3-margin-bottom w3-border w3-round w3-light-grey" type="text" name="comment"  placeholder="Comment ..." style="resize:none" required></textarea>
-                        <input class="w3-button w3-round yellow-bg blue1-text w3-margin-right"  type="submit" value="Submit">
-                        <input class="w3-button w3-round yellow-bg blue1-text w3-margin-right" type="reset" value="Reset">
-                    </fieldset>
-                </form>
+            <div class="flexbox-container-center padding-top-10vh">
+                <div class="w3-container w3-round-xlarge w3-padding-bottom yellow-border black-shadow p80-width">
+                    <h2 class="center-text">Leave a comment &#128075;</h2>
+                    <form action="/comments" method="POST">
+                        <textarea class="w3-input w3-round w3-light-grey" type="text" name="comment"  placeholder="Comment ..." style="resize:none" required></textarea>
+                        <input class="w3-button w3-round-xxlarge w3-margin-top w3-margin-bottom blue1-text yellow-bg"  type="submit" value="Submit">
+                        <input class="w3-button w3-round-xxlarge w3-margin-top w3-margin-bottom blue1-text yellow-bg" type="reset" value="Clear">
+                    </form>
+                    <div id="comment-list" class="w3-container"><div>                        
+                </div>
             </div>
-            <div class="w3-margin-top ">
-                <div id="comments" class="w3-card-4 w3-round margin-bottom-100"></div> 
-            </div>  
         </section>
     </div><!--End of content-->
 <!-- ============================================================================== Footer ================================================================================== -->

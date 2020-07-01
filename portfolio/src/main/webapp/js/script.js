@@ -24,6 +24,36 @@
      presentData(data, containerId)
      console.log(data)
  }
+
+ /*****************************************************************
+ * This function requests data from the authentication servlet 
+ * @param url: The url to request from 
+ * @param containerId: the id of the container in wich will toggle
+ *                    "Login" or "Logout" depending on the response
+ */
+ async function fetchAuthenticationServletAsync(url, containerId){
+     const response = await fetch(url)
+     const authInfo = await response.json()
+     processAuthInfo(authInfo, containerId)
+ }
+
+/******************************************************
+ * This function processes authentication information 
+ * and toggles LOGIN/LOGOUT button accordingly.
+ * @param authInfo: an object containing authentication information
+ *                  sent by the "\authentication servlet"
+ * @param containerId: The id of the container where the texts "Login"/ "Logout"
+ *                     is expected to appear on the UI                
+ */
+ function processAuthInfo(authInfo, containerId){
+     let logButton = document.getElementById(containerId)
+     logButton.setAttribute('href', authInfo.link)
+     if(authInfo.userIsLoggedIn){
+         logButton.innerText = "Logout"
+     }else{
+         logButton.innerText = "Login"
+     }
+ }
  
 /****************************************************************
  * This function processes responses from the server appropriately
@@ -34,16 +64,17 @@
 function presentData(data, containerId){
     const container = document.getElementById(containerId)
     let ul = document.createElement('ul');
-    addClass(ul, 'w3-ul', 'w3-round-16', 'w3-margin') // Adds some classes to the ul for styling
+    addClass(ul, 'w3-ul', 'w3-border-0', 'w3-round-16')
     data.forEach(dataItem => {
-        let author = createHtmlTag('p', '').appendChild(createHtmlTag('strong', dataItem.author))
+        let username = createHtmlTag('p', '').appendChild(createHtmlTag('strong', dataItem.username))
         let comment = createHtmlTag('p', dataItem.comment)
+        addClass(comment, 'w3-padding', 'w3-round-xxlarge', 'yellow-bg', 'blue1-text', 'smaller-text')
+
         let commentBlock = createHtmlTag('li', '')
+        addClass(commentBlock, 'w3-panel', 'black-shadow', "w3-round-xlarge", 'tiny-bottom-margin', 'w3-padding')
 
-        commentBlock.appendChild(author)
+        commentBlock.appendChild(username)
         commentBlock.appendChild(comment)
-
-        addClass(commentBlock, 'w3-panel', 'w3-border', 'w3-margin-bottom')
         ul.appendChild(commentBlock)    
     })
     container.appendChild(ul)
@@ -71,4 +102,12 @@ function addClass(htmlTag, ...cssClasses){
         htmlTag.classList.add(cssClass)
     })
     return htmlTag
+}
+
+/***********************************
+* This is the home page's event log   
+**********/
+window.onload = () =>{
+    fetchAuthenticationServletAsync('authentication', 'login-logout')
+    fetchDataAsync('/comments', 'comment-list')
 }

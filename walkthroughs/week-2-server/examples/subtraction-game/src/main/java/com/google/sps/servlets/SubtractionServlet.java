@@ -75,7 +75,6 @@ public final class SubtractionServlet extends HttpServlet {
       System.err.println("Player choice is out of range: " + playerChoiceString);
       return -1;
     }
-
     return playerChoice;
   }
 }
