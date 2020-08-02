@@ -14,15 +14,14 @@
 
 package com.google.sps;
 
-import java.util.Collection;
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.Collection;
 import java.util.Iterator;
-
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeSet;
+import java.util.TreeMap;
 
 public final class FindMeetingQuery {
 
@@ -103,7 +102,7 @@ public final class FindMeetingQuery {
    * @return attendeesMap
    */
 
-  private Map<TimeRange, Set> getAttendeesMap(Collection<Event> events){
+  private SortedMap<TimeRange, Set> getAttendeesMap(Collection<Event> events){
     SortedMap<TimeRange, Set> attendeesMap = new TreeMap<>(TimeRange.ORDER_BY_START);
     events.forEach(event -> {
       attendeesMap.put(event.getWhen(), event.getAttendees());
@@ -123,7 +122,7 @@ public final class FindMeetingQuery {
    */
 
   private TreeSet<TimeRange> getSortedTimeRanges(Collection<Event> events){
-    TreeSet<TimeRange> sortedTimeRanges = new TreeSet<>(TimeRange.ORDER_BY_START);
+    TreeSet<TimeRange> sortedTimeRanges = new TreeSet(TimeRange.ORDER_BY_START);
 
     // Adds all the Time Ranges in a TreeSet<TimeRange> sorted by START TIME
     events.forEach(event ->{
@@ -133,8 +132,8 @@ public final class FindMeetingQuery {
     // Removes nested events from the TreeSet<TimeRange>
     TimeRange predecessor = sortedTimeRanges.first();
     sortedTimeRanges.forEach(timeRange -> {
-      if(timeRange != predecessor) {
-        if(predecessor.contains(timeRange)) sortedTimeRanges.remove(timeRange);
+      if((timeRange != predecessor) && (predecessor.contains(timeRange))) {
+            sortedTimeRanges.remove(timeRange);
       }
     });
 
